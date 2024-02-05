@@ -5,7 +5,7 @@ package lessons_14.HomeWork;
 public class task0 {
     public static void main(String[] args) {
 
-        String inputString = "kfjdghlsdkjbns" ;
+        String inputString = "kfjdghlsdkjbnsgfhd" ;
 
         String result = converter(inputString);
 
