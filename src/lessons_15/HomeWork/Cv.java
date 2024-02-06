@@ -14,8 +14,8 @@ public class Cv {
         this.canMake = canMake;
     }
 
-        public void Student(){
-            System.out.println("Profession: " + profession + "\n" + "Mi age is: " + age + "\n" + "I'm " + canMake);
+        public void result(){
+            System.out.println("Profession: " + profession + "\n" + "My age is: " + age + "\n" + "I'm " + canMake);
     };
 
 }
