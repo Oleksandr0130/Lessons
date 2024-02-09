@@ -21,66 +21,77 @@ package lessons_18.HomeWork;
 public class Dog {
 
     private String name;
+    private int jumpHeight;
 
-    private int height;
+    private int maxJumpHeight;
 
-    private int maxJumpHeight = Integer.MAX_VALUE;
+    private static int increasePerOneTraining;
 
-
-
-    public Dog(String name, int height) {
-        this.name = name;
-        this.height = height;
+    static {
+        increasePerOneTraining = 10;
     }
 
-    public int getHeight() {
-        return height;
+    public Dog(String name, int jumpHeight) {
+        this.name = name;
+        this.jumpHeight = jumpHeight;
+        this.maxJumpHeight = jumpHeight * 2;
+    }
+
+
+    public void jump() {
+        System.out.println("Собака " + name + " совершила прыжок");
+    }
+
+    private void training() {
+        this.jumpHeight += increasePerOneTraining; // 44 + 10 = 54 < 88
+        //84 + 10 = 94 (max 88)
+
+//        jumpHeight =  (jumpHeight > maxJumpHeight) ? maxJumpHeight : jumpHeight;
+        //                          54             88   -> 54
+        //                          94             88   -> 88
+        jumpHeight =  Math.min(jumpHeight, maxJumpHeight); // метод возвращает меньшее из двух чисел
+        System.out.println(" === прыжок после тренировки === " + jumpHeight);
+
+    }
+
+    public boolean takeBarrier(int barrier) {
+        System.out.println(name + " прыжок: " + jumpHeight + "; барьер: " + barrier + " | Начало метода takeBarrier");
+        if (jumpHeight >= barrier) { // Если текущая высота прыжка достаточна - прыгаем
+            jump();
+            System.out.println("(jumpHeight >= barrier) = true -> " + name + " прыжок: " + jumpHeight + "; барьер: " + barrier);
+            return true;
+        } else { // ветка, в которой текущий прыжок меньше барьера
+            if (maxJumpHeight >= barrier) { // проверяем, есть ли смысл тренироваться
+
+                do { // Начинаем цикл тренировок
+                    training(); // каждая тренировка увеличивает высоту прыжка на 10 см
+                } while (jumpHeight < barrier); // проверяем - достаточна ли высота прыжка для взятия барьера
+
+
+                jump();
+                System.out.println("maxJumpHeight >= barrier : true -> " + name + " прыжок: " + jumpHeight + "; барьер: " + barrier);
+                return true;
+            } else { // Тренировки лишены смысла - этот барьер собака взять не может.
+                System.out.println("Извините, этот барьер мне не взять. ");
+                System.out.println("maxJumpHeight >= barrier : FALSE -> " + name + " прыжок: " + jumpHeight + "; барьер: " + barrier);
+
+                return false;
+            }
+        }
+    }
+
+
+    public void info() {
+        System.out.println("Собака: " + name + "; текущий прыжок " + jumpHeight + " | max: " + maxJumpHeight);
     }
 
     public String getName() {
         return name;
     }
 
-
-    public  int getMaxJumpHeight(){
-        return maxJumpHeight;
+    public void setName(String name) {
+        this.name = name;
     }
-
-
-    public void setMaxJumpHeight(int maxJumpHeight){
-        this.maxJumpHeight = maxJumpHeight;
-    }
-
-    public void Jump() {
-        System.out.println(name + " прыгает на высоту " + height + " см.");
-
-    }
-
-    void training() {
-        int newJump = height + 10;
-
-        if (newJump <= maxJumpHeight) {
-            height = newJump;
-            System.out.println("Тренирована! Новая высота прыжка: " + height + " см.");
-        } else {
-            System.out.println(name + " Выше не прыгну!!!");
-        }
-
-    }
-
-    public void jumpOverBarrier(int barrierHeight) {
-        if (barrierHeight <= maxJumpHeight) {
-            System.out.println(name + " прыгает через барьер высотой " + barrierHeight + " см.");
-        } else {
-            System.out.println(name + " не в состоянии прыгнуть через такой высокий барьер.");
-            if (barrierHeight <= (maxJumpHeight + 10)) {
-                System.out.println(name + " может преодолеть барьер после тренировки.");
-                training();
-                jumpOverBarrier(barrierHeight);
-            }
-        }
-    }
-
 }
 
 
