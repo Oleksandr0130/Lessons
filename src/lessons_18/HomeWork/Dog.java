@@ -46,6 +46,7 @@ public class Dog {
         return maxJumpHeight;
     }
 
+
     public void setMaxJumpHeight(int maxJumpHeight){
         this.maxJumpHeight = maxJumpHeight;
     }
@@ -62,11 +63,23 @@ public class Dog {
             height = newJump;
             System.out.println("Тренирована! Новая высота прыжка: " + height + " см.");
         } else {
-            System.out.println(name + "Выше не прыгну!!!");
+            System.out.println(name + " Выше не прыгну!!!");
         }
 
     }
 
+    public void jumpOverBarrier(int barrierHeight) {
+        if (barrierHeight <= maxJumpHeight) {
+            System.out.println(name + " прыгает через барьер высотой " + barrierHeight + " см.");
+        } else {
+            System.out.println(name + " не в состоянии прыгнуть через такой высокий барьер.");
+            if (barrierHeight <= (maxJumpHeight + 10)) {
+                System.out.println(name + " может преодолеть барьер после тренировки.");
+                training();
+                jumpOverBarrier(barrierHeight);
+            }
+        }
+    }
 
 }
 

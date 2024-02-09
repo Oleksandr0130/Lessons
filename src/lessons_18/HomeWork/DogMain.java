@@ -18,5 +18,9 @@ public class DogMain {
         dog.training();
 
 
+        dog.jumpOverBarrier(15);
+        dog.jumpOverBarrier(70);
+
+
     }
 }
