@@ -24,7 +24,7 @@ public class Dog {
 
     private int height;
 
-    private static int maxJumpHeight = Integer.MAX_VALUE;
+    private int maxJumpHeight = Integer.MAX_VALUE;
 
 
 
@@ -33,20 +33,21 @@ public class Dog {
         this.height = height;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public int getHeight() {
         return height;
     }
 
-    public static int getMaxJumpHeight(){
+    public String getName() {
+        return name;
+    }
+
+
+    public  int getMaxJumpHeight(){
         return maxJumpHeight;
     }
 
-    public static void setMaxJumpHeight(int maxJumpHeight){
-        Dog.maxJumpHeight = maxJumpHeight;
+    public void setMaxJumpHeight(int maxJumpHeight){
+        this.maxJumpHeight = maxJumpHeight;
     }
 
     public void Jump() {
