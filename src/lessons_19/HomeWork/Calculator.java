@@ -1,5 +1,11 @@
 package lessons_19.HomeWork;
 
+//Класс "Калькулятор" Создайте класс Calculator,
+// который будет предоставлять базовые арифметические операции: сложение, вычитание, умножение и деление.
+
+//Класс должен содержать: Статические методы для каждой операции, принимающие два аргумента и возвращающие результат операции.
+
+
 public class Calculator {
 
     public static double add(double num1, double num2) {
@@ -22,26 +28,19 @@ public class Calculator {
             return Double.NaN;
         }
 
+
     }
 
 
     public static void main(String[] args) {
         double a = 10;
-        double b = 0;
-
-        double result;
+        double b = 10;
 
 
-        System.out.println("Add: " + add(a, b));
-        System.out.println("Subtraction: " + subtraction(a, b));
-        System.out.println("Multiplication: " + multiplication(a, b));
-        System.out.println("Division: " + division(a, b));
+        System.out.println("Add: " + Calculator.add(a, b));
+        System.out.println("Subtraction: " + Calculator.subtraction(a, b));
+        System.out.println("Multiplication: " + Calculator.multiplication(a, b));
+        System.out.println("Division: " + Calculator.division(a, b));
 
-
-        if (Double.isNaN(result = division(a,b))){
-            System.out.println("Arror");
-        }else{
-            System.out.println("Result division: " + result);
-        }
     }
 }
