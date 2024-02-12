@@ -30,7 +30,7 @@ public class Product {
     }
 
     public String info(){
-        return  "id: " + id + "|" + name + "--price--"  + String.format("%.0f", price);
+        return  "id: " + id + "|" + name + "--price--"  + String.format("%.2f", price);
     }
 
     public String getName() {
@@ -78,7 +78,7 @@ public class Product {
 
         System.out.println("Всего продуктов: " + counterId);
 
-        product1.changePercent(-50);
+        product1.changePercent(-150);
         System.out.println("===========================");
         System.out.println(product.info());
         System.out.println(product1.info());
