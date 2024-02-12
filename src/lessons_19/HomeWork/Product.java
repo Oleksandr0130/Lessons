@@ -78,8 +78,9 @@ public class Product {
 
         System.out.println("Всего продуктов: " + counterId);
 
-        product1.changePercent(-150);
         System.out.println("===========================");
+
+        product1.changePercent(-150);
         System.out.println(product.info());
         System.out.println(product1.info());
     }
