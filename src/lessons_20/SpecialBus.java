@@ -2,8 +2,9 @@ package lessons_20;
 
 public class SpecialBus extends Bus {
 
+
     private int bicyclePlaces;
-    private int bycyclesCount;//по дефолту инициализируется 0
+    private int bicyclesCount;//по дефолту инициализируется 0
 
 
 
@@ -12,13 +13,27 @@ public class SpecialBus extends Bus {
         this.bicyclePlaces = bicyclePlaces;
     }
 
-    public void takePassengerWithBicycle(){
+    public boolean takePassengerWithBicycle(){
         // Есть ли место для
         // 1. Пассажира
         // 2. Велосипеда
         // есть ли место для обоих - оба садятся
         // если для кого-то нет места - никого не садим в автобус
 
+
+
+        //место для велосипеда есть
+        if (bicyclesCount < bicyclePlaces && takePassenger() ){
+            //boolean isPassengerEntry = takePassenger();
+
+            //if (isPassengerEntry){ // пассажира посадили в автобус
+                bicyclesCount++; // берем на борт велосипед
+                System.out.println("Пассажир и велосипед  поместились в автобус" + getModel());
+                return true;
+            }
+     //   }
+        System.out.println("Пассажир и велосипед Не поместились в автобус: " + getModel());
+        return false;
     }
 
     public int getBicyclePlaces() {
@@ -26,7 +41,7 @@ public class SpecialBus extends Bus {
     }
 
     public int getBycyclesCount() {
-        return bycyclesCount;
+        return bicyclesCount;
     }
 
     public int example(){
