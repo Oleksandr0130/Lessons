@@ -12,5 +12,21 @@ public class AutoParkMain {
         bus.setDriver(busDriver1);
 
         System.out.println(bus.toString());
+
+        Passenger passenger = new Passenger("John");
+        Passenger passenger1 = new Passenger("Margo");
+        Passenger passenger2 = new Passenger("Peter");
+        Passenger passenger3 = new Passenger("Hanna");
+        Passenger passenger4 = new Passenger("Seba");
+
+        bus.takePassenger(passenger);
+        bus.takePassenger(passenger1);
+        bus.takePassenger(passenger2);
+        bus.takePassenger(passenger3);
+        bus.takePassenger(passenger4);
+        bus.takePassenger(new Passenger("test"));
+
+        System.out.println(bus.getStringPassengersList());
+
     }
 }
