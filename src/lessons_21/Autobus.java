@@ -60,29 +60,47 @@ public class Autobus {
 
     @Override
     public String toString() {
-        return "Autobus:  {" + " driver: " + driver.getLicenseNumber() + " ; autopilot: " + autopilot.getSoftwareVer() + "}";
-    }
-    public String getStringPassengersList(){
-        //Перебрать список пассажиров. Приклеить к строке пассажира в едином виде id + name
-        // т.к пассажир- ссылочный тип данных - приклеивать только не null ссылки
-        StringBuilder sb = new StringBuilder("{");
+        StringBuilder sb = new StringBuilder();
+
+        sb.append("Autobus: { Driver: ").append(driver.getLicenseNumber()).append("; autopilit: ").append(autopilot.getSoftwareVer()).append("\n");
+
         for (int i = 0; i < passengers.length; i++) {
             if (passengers[i] != null){
-                //добавляем инфо о пассажире
+
                 Passenger current = passengers[i];
                 sb.append("Passenger: {id: ").append(current.getId()).append("; name").append(current.getName()).append("}");
                 sb.append("; ");
             }
         }
 
-        //нам надо проверить был ли добавлен хоть бы один пассажир
-        // если был то отрезать 2 последних символа
+
         if (sb.length() > 1){
             sb.setLength(sb.length() - 2);
         }
         sb.append("}");
         return sb.toString();
     }
+//    public String getStringPassengersList(){
+//        //Перебрать список пассажиров. Приклеить к строке пассажира в едином виде id + name
+//        // т.к пассажир- ссылочный тип данных - приклеивать только не null ссылки
+//        StringBuilder sb = new StringBuilder("{");
+//        for (int i = 0; i < passengers.length; i++) {
+//            if (passengers[i] != null){
+//                //добавляем инфо о пассажире
+//                Passenger current = passengers[i];
+//                sb.append("Passenger: {id: ").append(current.getId()).append("; name").append(current.getName()).append("}");
+//                sb.append("; ");
+//            }
+//        }
+//
+//        //нам надо проверить был ли добавлен хоть бы один пассажир
+//        // если был то отрезать 2 последних символа
+//        if (sb.length() > 1){
+//            sb.setLength(sb.length() - 2);
+//        }
+//        sb.append("}");
+//        return sb.toString();
+//    }
 
 
 }

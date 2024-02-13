@@ -26,7 +26,8 @@ public class AutoParkMain {
         bus.takePassenger(passenger4);
         bus.takePassenger(new Passenger("test"));
 
-        System.out.println(bus.getStringPassengersList());
+        //System.out.println(bus.getStringPassengersList());
 
+        System.out.println(bus.toString());
     }
 }
