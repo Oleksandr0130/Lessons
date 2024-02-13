@@ -18,6 +18,7 @@ public class StringBuilderExampl {
 
         String result = sb.toString();
         System.out.println(result);
+
     //insert - вставляет строку в указанную позицию текущего sb
     sb.insert(3, "JAVA");
         System.out.println(sb.toString());
