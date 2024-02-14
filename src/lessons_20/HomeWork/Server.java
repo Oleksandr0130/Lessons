@@ -9,13 +9,6 @@ public class Server {
         this.capacity = capacity;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getCapacity() {
-        return capacity;
-    }
 
     public String info (){
         StringBuilder sb = new StringBuilder();

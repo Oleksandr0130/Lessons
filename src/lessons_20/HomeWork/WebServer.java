@@ -8,15 +8,10 @@ public class WebServer extends Server{
         this.hostingProvider = hostingProvider;
     }
 
-    public String getHostingProvider() {
-        return hostingProvider;
-    }
-
     public String info(){
         StringBuilder sb = new StringBuilder(super.info());
         sb.append(", Hosting Provider: ").append(hostingProvider);
         return sb.toString();
 
     }
-
 }
