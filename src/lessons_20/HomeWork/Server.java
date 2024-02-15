@@ -4,6 +4,7 @@ public class Server {
     private String name;
     private int capacity;
 
+
     public Server(String name, int capacity) {
         this.name = name;
         this.capacity = capacity;
