@@ -1,11 +1,17 @@
 package lessons_22.HomeWork;
 
 public class ProfessionalAthlete extends AmateurAthlete{
-    public void run(){
-        System.out.println("Спортсмен-профи бежит со скоростью 25 км");
-        rest(5);
+    public int run;
+    public int rest;
+
+    public ProfessionalAthlete(int run, int rest, int run1, int rest1, int run2, int rest2) {
+        super(run, rest, run1, rest1);
+        this.run = run2;
+        this.rest = rest2;
     }
-    public void rest(int minut){
-        System.out.println("Нужен Отдых: " + minut + "минут");
+
+    @Override
+    public String toString() {
+        return "Спортсмен-профи бежит: " + run + "\n" + "Спортсмену-профи нужен отдых: " + rest;
     }
 }
