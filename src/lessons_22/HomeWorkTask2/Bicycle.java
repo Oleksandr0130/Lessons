@@ -11,4 +11,5 @@ public class Bicycle extends Vehicle{
         System.out.println("У велосипеда нет двигателя, крутите педали");
 
     }
+
 }
