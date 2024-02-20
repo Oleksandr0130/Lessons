@@ -2,44 +2,55 @@ package lessons_24.HomeWork;
 
 import java.util.Scanner;
 
-public class BankAccount {
-    public static void main(String[] args) {
+public class BankAccount implements PaymentSystem {
 
-        while (true) {
+    private String title;
+    private double checkBalance;
 
-            Scanner scanner = new Scanner(System.in);
-            System.out.print("Введите начальный баланс: ");
-            double checkBalance = scanner.nextDouble();
+    public BankAccount(String title, double checkBalance) {
+        this.title = title;
+        this.checkBalance = checkBalance;
+    }
 
-            System.out.print("Введите сумма перевода: ");
-            double transferMoney = scanner.nextDouble();
+    @Override
+    public void transferMoney(double amount) {
+        if (amount > checkBalance) return;
+        System.out.println("Банк: " + title + "| вывод средств" + amount);
+        checkBalance -= amount;
+    }
 
-            System.out.print("Введите сумму вывода: ");
-            double withdrawMoney = scanner.nextDouble();
+    @Override
+    public void withdrawMoney(double drawMoney) {
+        if (drawMoney > checkBalance) return;
+        System.out.println("Банк: " + title + "| вывод средств" + drawMoney);
+        checkBalance -= drawMoney;
+    }
 
+    @Override
+    public double checkBalance() {
+        return checkBalance;
+    }
 
-            ElectronicWallet wallet = new ElectronicWallet(scanner, transferMoney, withdrawMoney, checkBalance);
-            wallet.transferMoney();
-            wallet.withdrawMoney();
-            wallet.checkBalance();
+    public String getTitle() {
+        return title;
+    }
 
-            if (!wallet.askForRepeat()) {
-                break;
+    public double getBalance() {
+        return checkBalance;
+    }
 
-            }
-            wallet.resetInputValue(0, 0, 0);
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-            ElectronicWallet wallet1 = new ElectronicWallet(scanner, transferMoney, withdrawMoney, checkBalance);
-            wallet1.transferMoney();
-            wallet1.withdrawMoney();
-            wallet1.checkBalance();
-
-
-        }
-
-
-
-
+    @Override
+    public String toString() {
+        return "BankAccount{" +
+                "title='" + title + '\'' +
+                ", checkBalance=" + checkBalance +
+                '}';
     }
 }
+
+
 

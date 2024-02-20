@@ -6,9 +6,9 @@ package lessons_24.HomeWork;
 // Убедитесь, что каждый класс корректно выполняет каждую из операций.
 public interface PaymentSystem {
 
-    void transferMoney(); // перевести деньги
-    void withdrawMoney(); // снять деньги
-    void checkBalance(); // проверить баланс
+    void transferMoney(double amount); // перевести деньги
+    void withdrawMoney(double drawMoney); // снять деньги
+    double checkBalance(); // проверить баланс
 
 
 }

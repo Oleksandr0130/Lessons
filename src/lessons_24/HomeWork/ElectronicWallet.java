@@ -4,67 +4,57 @@ import java.util.Scanner;
 
 public class ElectronicWallet implements PaymentSystem {
 
-    private double transferMoney;
 
-    private double withdrawMoney;
+    private String title;
 
     private double checkBalance;
 
 
-    private Scanner scanner;
 
-
-    public ElectronicWallet(Scanner scanner, double transferMoney, double withdrawMoney, double checkBalance) {
-        this.transferMoney = transferMoney;
-        this.withdrawMoney = withdrawMoney;
+    public ElectronicWallet(String title, double checkBalance) {
         this.checkBalance = checkBalance;
-        this.scanner = scanner;
-    }
-    public void resetInputValue(double transferMoney, double withdrawMoney, double checkBalance){
-        this.transferMoney = transferMoney;
-        this.withdrawMoney = withdrawMoney;
-        this.checkBalance = checkBalance;
+        this.title = title;
 
     }
 
     @Override
-    public void transferMoney() {
-        checkBalance -= transferMoney;
-        System.out.println("Сумма перевода: " + transferMoney);
+    public void transferMoney(double amount) {
+        if (amount > checkBalance) return;
+        System.out.println("Банк: " + title + "| вывод средств" + amount);
+        checkBalance -= amount;
     }
 
     @Override
-    public void withdrawMoney() {
-        do {
-
-            if (withdrawMoney <= checkBalance) {
-                checkBalance -= withdrawMoney;
-                System.out.println("Сумма вывода: " + withdrawMoney);
-                break;
-            } else {
-                System.out.println("Недостаточно средств!!!");
-            }
-        } while (true);
+    public void withdrawMoney(double drawMoney) {
+        if (drawMoney > checkBalance) return;
+        System.out.println("Банк: " + title + "| вывод средств" + drawMoney);
+        checkBalance -= drawMoney;
     }
 
     @Override
-    public void checkBalance() {
-        System.out.println("Ваш баланс: " + checkBalance);
+    public double checkBalance() {
+        return checkBalance;
     }
 
-    boolean askForRepeat() {
-        while (true) {
-            System.out.println("Хотите выполнить ещё раз?");
-            String answer = scanner.next();
-            if ("да".equals(answer)) {
-                return true;
-            }else if ("нет".equals(answer)){
-                return false;
-            }else {
-                System.out.println("Введите 'да' или 'нет'");
-            }
+    public double getCheckBalance() {
+        return checkBalance;
+    }
 
+    public String getTitle() {
+        return title;
+    }
 
-        }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Override
+    public String toString() {
+        return "ElectronicWallet{" +
+                ", checkBalance=" + checkBalance +
+                ", title='" + title + '\'' +
+                '}';
     }
 }
+
+
