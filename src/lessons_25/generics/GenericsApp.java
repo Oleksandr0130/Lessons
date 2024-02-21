@@ -5,7 +5,8 @@ package lessons_25.generics;
 */
 
 
-import lesson_22.Cat;
+
+import lessons_22.Cat;
 
 public class GenericsApp {
     public static void main(String[] args) {
