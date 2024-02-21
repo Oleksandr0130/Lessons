@@ -1,3 +1,5 @@
+package lessons_26;
+
 public interface MyList<T> {
 
 
