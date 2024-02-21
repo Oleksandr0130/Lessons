@@ -1,13 +1,9 @@
-package lessons_25.HomeWork;
-//Параметризовать наш класс "Резиновый массив",
-// добавив в него обобщение типа (generic).
-//
-//Реализовать в классе параметризованный интерфейс MyList
+package lessons_25.HomeWorkArrayList;
 
-
-public interface MyList <T> {
+public interface MyList {
     /**
      * Добавить элемент
+     *
      * @param value
      */
     void add(T value);
@@ -15,6 +11,7 @@ public interface MyList <T> {
 
     /**
      * добавить несколько элементов
+     *
      * @param values
      */
     void addAll(T... values);
@@ -22,6 +19,7 @@ public interface MyList <T> {
 
     /**
      * Возвращает количество элементов в массиве
+     *
      * @return int - количество элементов в массиве
      */
     int size();
@@ -30,6 +28,7 @@ public interface MyList <T> {
 
     /**
      * Поиск элемента по значению
+     *
      * @param value
      * @return int - индекс элемента
      */
@@ -38,6 +37,7 @@ public interface MyList <T> {
 
     /**
      * Поиск элемента по значению
+     *
      * @param value
      * @return int -  индекс последнего вхождения
      */
@@ -46,6 +46,7 @@ public interface MyList <T> {
 
     /**
      * Содержит ли массив элемент с таким значением
+     *
      * @param value
      * @return boolean
      */
@@ -54,14 +55,15 @@ public interface MyList <T> {
 
     /**
      * Возвращает представление элементов в виде массива
+     *
      * @return Array - представление элементов в виде массива
      */
-    T[] toArray();
-
+    Object[] toArray();
 
 
     /**
      * Удаляет один элемент по значению
+     *
      * @param value
      * @return boolean. True - в случае успешного удаления.
      */
@@ -70,15 +72,16 @@ public interface MyList <T> {
 
     /**
      * Удаляет элемент по индексу.
+     *
      * @param index
      * @return - Возвращает значение удаленного элемента
      */
     T remove(int index);
 
 
-
     /**
      * Является ли коллекция пустой
+     *
      * @return boolean. Если элементов в коллекции нет - вернет true
      */
     boolean isEmpty();
@@ -86,6 +89,7 @@ public interface MyList <T> {
 
     /**
      * Получить значение по индексу
+     *
      * @param index
      * @return value
      */
@@ -94,10 +98,11 @@ public interface MyList <T> {
 
     /**
      * Перезаписывает значение по указанному индексу
+     *
      * @param index
      * @param value
      */
-    void set (int index, T value);
+    void set(int index, T value);
 
 
 }

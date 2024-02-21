@@ -1,7 +1,7 @@
-package lessons_25.HomeWork;
+package lessons_25.HomeWorkArrayList;
 
-public class MyArrayList<T> implements MyList<T> {
-
+import java.lang.reflect.Array;
+public class MyArrayList<T> implements MyList {
     private T[] array;
     private int cursor; // присвоено значение по умолчанию 0
     private static final int MULTIPLAYER = 2;

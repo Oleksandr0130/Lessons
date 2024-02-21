@@ -1,12 +1,13 @@
-package lessons_25.HomeWork;
+package lessons_25.HomeWorkArrayList;
 
-public class MyArrayListApp {
+import java.util.Arrays;
+public class ArrayListApp {
     public static void main(String[] args) {
-        MyArrayListApp<Integer> integerList = new MyArrayListApp<>();
+        MyArrayList<Integer> integerList = new MyArrayList<>();
 
-        MyList<String> stringList = new MyArrayListApp<>();
+        MyList<String> stringList = new MyArrayList<>();
 
-        MyList<Number> numberList = new MyArrayListApp<>();
+        MyList<Number> numberList = new MyArrayList<>();
 
         System.out.println(stringList);
 
@@ -67,6 +68,7 @@ public class MyArrayListApp {
 
         Integer[] arrayInt = integerList.toArray(Integer.class);
         System.out.println(Arrays.toString(arrayInt));
+
 
     }
 }
