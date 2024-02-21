@@ -1,8 +1,5 @@
-package transport;
-/*
-@date 15.02.2024
-@author Sergey Bugaienko
-*/
+package lessons_23.transport;
+
 
 public class Bicycle extends Vehicle{
 

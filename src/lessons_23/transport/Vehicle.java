@@ -1,8 +1,4 @@
-package transport;
-/*
-@date 15.02.2024
-@author Sergey Bugaienko
-*/
+package lessons_23.transport;
 
 /*
 Создайте иерархию классов для разных типов транспортных средств:
