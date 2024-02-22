@@ -1,6 +1,6 @@
 ### IntelliJ IDEA ###
 .idea/
-
+lib/
 .idea
 out
 !**/src/main/**/out/
