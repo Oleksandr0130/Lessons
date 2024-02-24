@@ -8,5 +8,4 @@ public interface MyQueue<T>{
     T remove(); // Удаляет первый элемент списка
     T removeFirst(); // Удаляет первый элемент списка
     T removeLast(); //Удаляет последний элемент списка
-}
-
+ }

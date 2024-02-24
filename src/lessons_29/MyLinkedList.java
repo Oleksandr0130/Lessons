@@ -4,7 +4,7 @@ import lessons_26.MyList;
 
 import java.lang.reflect.Array;
 
-public class MyLinkedList<T> implements MyList<T> {
+public class MyLinkedList<T> implements MyList<T>,MyQueue<T>{
 
     private Node<T> first;
     private Node<T> last;
@@ -56,6 +56,11 @@ public class MyLinkedList<T> implements MyList<T> {
         size++;
     }
 
+    @Override
+    public void addLast(T value) {
+        add(value);
+    }
+
     // Удаляем самый первый (левый) элемент
     public T remove() {
         if (size == 0) return null;
@@ -78,6 +83,11 @@ public class MyLinkedList<T> implements MyList<T> {
         }
         size--;
         return value;
+    }
+
+    @Override
+    public T removeFirst() {
+       return remove();
     }
 
     // Удаление справа
@@ -231,6 +241,8 @@ public class MyLinkedList<T> implements MyList<T> {
         return removeValue;
     }
 
+
+
     @Override
     public boolean isEmpty() {
         return size == 0;
@@ -248,6 +260,23 @@ public class MyLinkedList<T> implements MyList<T> {
         }
 
         return cursor.value;
+    }
+
+    @Override
+    public T getFirst() {
+        if (first == null) return null;
+
+        return first.value;
+    }
+
+    @Override
+    public T getLast() {
+        if (last == null){
+            if (first == null)return null;
+        }else {
+            return first.value;
+        }
+        return last.value;
     }
 
     @Override
