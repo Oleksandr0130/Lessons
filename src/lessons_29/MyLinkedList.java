@@ -1,7 +1,5 @@
 package lessons_29;
 
-import lessons_26.MyList;
-
 import java.lang.reflect.Array;
 
 public class MyLinkedList<T> implements MyList<T>,MyQueue<T>{
@@ -189,19 +187,14 @@ public class MyLinkedList<T> implements MyList<T>,MyQueue<T>{
 
     @Override
     public boolean contains(T value) {
-        Node<T> cursor = first;
-        while (cursor != null){
-            if (cursor.value.equals(value)){
-                return true;
-            }
-            cursor = cursor.next;
-        }
-        return false;
+        return  indexOf(value) >= 0;
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public T[] toArray() {
+        if (first == null) return null;
+
         T[] result = (T[]) Array.newInstance(first.value.getClass(), size);
         Node<T> cursor = first;
         int index = 0;
@@ -228,17 +221,13 @@ public class MyLinkedList<T> implements MyList<T>,MyQueue<T>{
 
     @Override
     public T remove(int index) {
-        if (index < 0 && index >= size){
+        if (index < 0 && index >= size){ return null;
+        }
+        Node<T> nodeForRemove  = searchNodeByIndex(index);
+        T value = nodeForRemove.value;
 
-        return null;
-        }
-        Node<T> cursor = first;
-        for (int i = 0; i < index; i++) {
-            cursor = cursor.next;
-        }
-        T removeValue = cursor.value;
-        removeNode(cursor);
-        return removeValue;
+        removeNode(nodeForRemove);
+        return value;
     }
 
 
@@ -291,6 +280,23 @@ public class MyLinkedList<T> implements MyList<T>,MyQueue<T>{
         }
 
         cursor.value = value;
+    }
+
+    private Node<T> searchNodeByIndex (int index){
+        Node<T> cursor;
+        if (index <= size / 2){
+            cursor = first;
+            for (int i = 0; i < index; i++) {
+                cursor = cursor.next;
+            }
+        }else {
+            cursor = last;
+            for (int i = size -1 ; i >index ; i--) {
+                cursor = cursor.next;
+
+            }
+        }
+        return cursor;
     }
 
     @Override

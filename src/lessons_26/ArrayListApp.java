@@ -1,5 +1,8 @@
 package lessons_26;
 
+import lessons_29.MyArrayList;
+import lessons_29.MyList;
+
 import java.util.Arrays;
 
 public class ArrayListApp {
