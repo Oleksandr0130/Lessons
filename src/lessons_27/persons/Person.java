@@ -78,8 +78,8 @@ public class Person {
 
      */
 
-    private boolean isPasswordValid(String password){
-        if (password == null || password.length()< 8 )return false;
+    private boolean isPasswordValid(String password) {
+        if (password == null || password.length() < 8) return false;
 
         boolean isLowerCase = false;
         boolean isUpperCase = false;
@@ -91,13 +91,13 @@ public class Person {
         for (int i = 0; i < password.length(); i++) {
             char c = password.charAt(i);
 
-            if (Character.isDigit(c)){
+            if (Character.isDigit(c)) {
                 isDigit = true;
                 res[0] = true;
                 continue;
             }
 
-            if (Character.isLowerCase(c)){
+            if (Character.isLowerCase(c)) {
                 isLowerCase = true;
                 res[1] = true;
                 continue;
@@ -106,24 +106,24 @@ public class Person {
             if (Character.isUpperCase(c)) {
                 isUpperCase = true;
             }
-            if ("!%$@&*".indexOf(c) >= 0){
+            if ("!%$@&*".indexOf(c) >= 0) {
                 isSpecialSymbol = true;
             }
         }
 
-       return isLowerCase && isUpperCase && isSpecialSymbol;
+        return isLowerCase && isUpperCase && isSpecialSymbol;
 
     }
 
 
-        public String getPassword () {
-            return password;
-        }
+    public String getPassword() {
+        return password;
+    }
 
-        public void setPassword (String password){
-            if (isPasswordValid(password))
+    public void setPassword(String password) {
+        if (isPasswordValid(password))
             this.password = password;
-        }
+    }
 
     @Override
     public String toString() {

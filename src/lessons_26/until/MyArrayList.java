@@ -1,6 +1,4 @@
-package util;
-
-import lessons_30.MyList;
+package lessons_26.until;
 
 import java.lang.reflect.Array;
 
