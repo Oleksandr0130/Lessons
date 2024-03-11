@@ -14,8 +14,7 @@ import java.util.*;
 //4. Преобразовать в список и вернуть
 public class Task1Set {
 public static String removeP (String strings){
-    String result = strings.replaceAll("[^a-zA-Z0-9а-яА-Я ]", "");
-   return result;
+    return strings.replaceAll("[^a-zA-Z0-9а-яА-Я ]", "");
 }
 public static void printWords(String strings){
     String[] words = (removeP(strings).split(" "));
